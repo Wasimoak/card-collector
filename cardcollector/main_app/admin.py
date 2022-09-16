@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Card, Buying
+from .models import Card, Buying, Grade
 
 # Register your models here.
 admin.site.register(Card)
 admin.site.register(Buying)
+admin.site.register(Grade)

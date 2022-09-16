@@ -8,12 +8,23 @@ SALES = (
     ('T', 'Trade')
 )
 
+class Grade(models.Model):
+  name = models.CharField(max_length=50)
+  color = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('grades_detail', kwargs={'pk': self.id})
+
 # Create your models here.
 class Card(models.Model):
     name = models.CharField(max_length=100)
     sport = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
     value = models.TextField(max_length=15)
+    grades = models.ManyToManyField(Grade)
 
     def __str__(self):
         return self.name
