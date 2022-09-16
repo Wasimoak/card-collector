@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Grade List</h1>
+
+{% for grade in grade_list %}
+  <a href="{% url 'grades_detail' grade.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ grade.name }}</span>
+            <p>Color: {{ grade.color }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
